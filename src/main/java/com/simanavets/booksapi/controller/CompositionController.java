@@ -1,12 +1,12 @@
 package com.simanavets.booksapi.controller;
 
-import com.simanavets.booksapi.entity.Composition;
+import com.simanavets.booksapi.dto.CompositionReadDto;
 import com.simanavets.booksapi.service.CompositionService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/compositions")
@@ -19,7 +19,7 @@ public class CompositionController {
     }
     
     @GetMapping
-    public List<Composition> findAll() {
+    public Set<CompositionReadDto> findAll() {
         return service.findAll();
     }
 }

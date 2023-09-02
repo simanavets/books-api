@@ -8,5 +8,8 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class CompositionReadDto {
+
     private String name;
+    private String author;
+    private Boolean isFinished;
 }

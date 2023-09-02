@@ -1,10 +1,12 @@
 package com.simanavets.booksapi.service;
 
+import com.simanavets.booksapi.dto.CompositionReadDto;
 import com.simanavets.booksapi.entity.Composition;
 import com.simanavets.booksapi.repository.CompositionRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class CompositionService {
@@ -15,9 +17,10 @@ public class CompositionService {
         this.repository = repository;
     }
 
-    public List<Composition> findAll() {
-        return repository.findAll();
+    public Set<CompositionReadDto> findAll() {
+        return repository.findAll()
+                .stream()
+                .map(Composition::toDto)
+                .collect(Collectors.toSet());
     }
-
-
 }
