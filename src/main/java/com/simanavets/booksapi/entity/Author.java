@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,17 +15,17 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 public class Author {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
+
     private String firstName;
     private String lastName;
-    
+
     @OneToMany(mappedBy = "author")
-    private Set<Composition> compositions;
-    
+    private List<Composition> compositions;
+
     public AuthorReadDto toDto() {
         return AuthorReadDto.builder()
                 .firstName(this.firstName)
