@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-public class BookService implements CrudService<Book> {
+public class BookService {
 
     private final BookRepository repository;
 
@@ -16,23 +16,19 @@ public class BookService implements CrudService<Book> {
         this.repository = repository;
     }
 
-    @Override
     public List<Book> findAll() {
         return repository.findAll();
     }
 
-    @Override
     public Book findOneById(Integer id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException(String.format("No book with id = %s", id)));
     }
 
-    @Override
     public Book save(Book book) {
         return repository.save(book);
     }
 
-    @Override
     public void deleteById(Integer id) {
         repository.deleteById(id);
     }
