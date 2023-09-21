@@ -1,6 +1,6 @@
 INSERT INTO author(first_name, last_name)
 VALUES ('Федор', 'Достоевский'),
-       ('Эрих', 'Ремарк');
+       ('Эрих Мария', 'Ремарк');
 
 INSERT INTO book(year_of_production, price, description, location)
 VALUES (2015, null, null, 'Варшава');
