@@ -24,7 +24,7 @@ public class Book {
     @JoinColumn(name = "book_id")
     private List<Composition> compositions;
 
-    private String yearOfProduction;
+    private Integer yearOfProduction;
 
     private Double price;
 
@@ -34,13 +34,13 @@ public class Book {
 
     public BookReadDto toDto() {
         return BookReadDto.builder()
-                .compositions(compositions.stream()
+                .compositions(this.compositions.stream()
                         .map(Composition::toDto)
                         .collect(toList()))
-                .yearOfProduction(yearOfProduction)
-                .price(price)
-                .description(description)
-                .location(location)
+                .yearOfProduction(this.yearOfProduction)
+                .price(this.price)
+                .description(this.description)
+                .location(this.location)
                 .build();
     }
 }

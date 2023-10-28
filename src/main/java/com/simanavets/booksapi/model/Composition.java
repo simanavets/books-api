@@ -26,9 +26,9 @@ public class Composition {
     
     public CompositionReadDto toDto() {
         return CompositionReadDto.builder()
-                .name(name)
-                .author(author.getFirstName() + " " + author.getLastName())
-                .isFinished(isFinished)
+                .name(this.name)
+                .author(this.author.getFirstName() + " " + this.author.getLastName())
+                .isFinished(this.isFinished)
                 .build();
     }
     

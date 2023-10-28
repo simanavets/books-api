@@ -11,12 +11,8 @@ import java.util.List;
 @Builder
 public class BookReadDto {
     private List<CompositionReadDto> compositions;
-    
-    private String yearOfProduction;
-
+    private Integer yearOfProduction;
     private Double price;
-
     private String description;
-
     private String location;
 }
