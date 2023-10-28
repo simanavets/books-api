@@ -1,7 +1,7 @@
 package com.simanavets.booksapi.service;
 
 import com.simanavets.booksapi.dto.CompositionReadDto;
-import com.simanavets.booksapi.entity.Composition;
+import com.simanavets.booksapi.model.Composition;
 import com.simanavets.booksapi.repository.CompositionRepository;
 import org.springframework.stereotype.Service;
 

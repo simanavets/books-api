@@ -1,4 +1,4 @@
-package com.simanavets.booksapi.entity;
+package com.simanavets.booksapi.model;
 
 import com.simanavets.booksapi.dto.AuthorReadDto;
 import jakarta.persistence.*;

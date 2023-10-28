@@ -8,8 +8,6 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class AuthorReadDto {
-    
     private String firstName;
     private String lastName;
-    
 }

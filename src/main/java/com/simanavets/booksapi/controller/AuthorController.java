@@ -2,7 +2,7 @@ package com.simanavets.booksapi.controller;
 
 import com.simanavets.booksapi.dto.AuthorReadDto;
 import com.simanavets.booksapi.dto.CompositionReadDto;
-import com.simanavets.booksapi.entity.Author;
+import com.simanavets.booksapi.model.Author;
 import com.simanavets.booksapi.service.AuthorService;
 import jakarta.validation.constraints.Positive;
 import org.springframework.web.bind.annotation.*;
