@@ -1,5 +1,6 @@
 package com.simanavets.booksapi.service;
 
+import com.simanavets.booksapi.dto.AuthorCreateUpdateDto;
 import com.simanavets.booksapi.dto.AuthorReadDto;
 import com.simanavets.booksapi.dto.CompositionReadDto;
 import com.simanavets.booksapi.model.Author;
@@ -43,12 +44,23 @@ public class AuthorService {
                 .collect(toSet());
     }
 
-    public AuthorReadDto save(Author author) {
-        return repository.save(author).toDto();
+    public AuthorReadDto save(AuthorCreateUpdateDto authorDto) {
+        return repository.save(authorDto.fromDto())
+                .toDto();
+    }
+
+    public AuthorReadDto update(Integer id, AuthorCreateUpdateDto authorDto) {
+        var author = repository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException(String.format("No author with id = %s", id)));
+
+        author.setFirstName(authorDto.getFirstName());
+        author.setLastName(authorDto.getLastName());
+        repository.flush();
+
+        return author.toDto();
     }
 
     public void deleteById(Integer id) {
         repository.deleteById(id);
     }
-
 }

@@ -28,6 +28,7 @@ public class Author {
 
     public AuthorReadDto toDto() {
         return AuthorReadDto.builder()
+                .id(this.id)
                 .firstName(this.firstName)
                 .lastName(this.lastName)
                 .build();
