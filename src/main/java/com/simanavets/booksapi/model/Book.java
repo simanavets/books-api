@@ -31,5 +31,16 @@ public class Book {
     private String description;
 
     private String location;
-    
+
+    public BookReadDto toDto() {
+        return BookReadDto.builder()
+                .compositions(compositions.stream()
+                        .map(Composition::toDto)
+                        .collect(toList()))
+                .yearOfProduction(yearOfProduction)
+                .price(price)
+                .description(description)
+                .location(location)
+                .build();
+    }
 }

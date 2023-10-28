@@ -1,11 +1,14 @@
 package com.simanavets.booksapi.service;
 
-import com.simanavets.booksapi.entity.Book;
+import com.simanavets.booksapi.dto.BookReadDto;
+import com.simanavets.booksapi.model.Book;
 import com.simanavets.booksapi.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class BookService {
@@ -16,8 +19,10 @@ public class BookService {
         this.repository = repository;
     }
 
-    public List<Book> findAll() {
-        return repository.findAll();
+    public List<BookReadDto> findAll() {
+        return repository.findAll()
+                .stream().map(Book::toDto)
+                .collect(toList());
     }
 
     public Book findOneById(Integer id) {

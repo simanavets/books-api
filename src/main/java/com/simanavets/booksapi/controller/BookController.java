@@ -1,6 +1,6 @@
 package com.simanavets.booksapi.controller;
 
-import com.simanavets.booksapi.entity.Book;
+import com.simanavets.booksapi.dto.BookReadDto;
 import com.simanavets.booksapi.service.BookService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +19,7 @@ public class BookController {
     }
     
     @GetMapping
-    public List<Book> findAll() {
+    public List<BookReadDto> findAll() {
         return service.findAll();
     }
 }
